@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>微型短链接服务 | 项目详情</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="portfolio">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container project-detail">
+        <div class="section-head reveal">
+          <div class="eyebrow">Project Case</div>
+          <h1>微型短链接服务</h1>
+          <p>参考轻量短链项目结构，围绕“短、稳、可追踪”做最小闭环。</p>
+        </div>
+
+        <article class="panel reveal">
+          <h2>项目概览</h2>
+          <ul class="meta-list">
+            <li>周期：1 周</li>
+            <li>角色：独立开发</li>
+            <li>类型：Web 工具</li>
+            <li>标签：短链接 / 跳转 / 访问统计</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2>背景与目标</h2>
+          <p>背景：经常需要分享长链接，复制和管理都不够方便。</p>
+          <p>目标：提供短链生成、重定向访问和基础点击计数能力。</p>
+        </article>
+
+        <article class="panel reveal">
+          <h2>方案与实现</h2>
+          <p>核心思路：先保证跳转稳定，再补充管理与统计。</p>
+          <ul class="meta-list">
+            <li>模块 1：输入原始 URL 并生成短码</li>
+            <li>模块 2：通过短码重定向到原始链接</li>
+            <li>模块 3：记录访问次数和最近访问时间</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2>结果与复盘</h2>
+          <p>结果：常用分享链接可快速管理，重复查找成本下降。</p>
+          <p>复盘：下一版可增加过期策略和自定义短码。</p>
+        </article>
+
+        <div class="hero-actions reveal" style="margin-top: 6px">
+          <a class="btn" href="portfolio.html">返回作品页</a>
+          <a class="btn" href="life.html">继续看生活记录</a>
+        </div>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

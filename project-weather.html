@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>天气速览页 | 项目详情</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="portfolio">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container project-detail">
+        <div class="section-head reveal">
+          <div class="eyebrow">Project Case</div>
+          <h1>天气速览页</h1>
+          <p>参考开源天气应用，强调“关键信息一眼可读”和流畅切换城市。</p>
+        </div>
+
+        <article class="panel reveal">
+          <h2>项目概览</h2>
+          <ul class="meta-list">
+            <li>周期：1 周</li>
+            <li>角色：独立开发</li>
+            <li>类型：数据展示页面</li>
+            <li>标签：天气数据 / 视觉层级 / 城市切换</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2>背景与目标</h2>
+          <p>背景：天气类页面常有信息过多、重点不清的问题。</p>
+          <p>目标：突出实时温度和未来趋势，降低阅读负担。</p>
+        </article>
+
+        <article class="panel reveal">
+          <h2>方案与实现</h2>
+          <ul class="meta-list">
+            <li>模块 1：实时天气卡片（温度、体感、天气状态）</li>
+            <li>模块 2：未来预报列表（日期、区间温度、图标）</li>
+            <li>模块 3：城市切换和最近城市缓存</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2>结果与复盘</h2>
+          <p>结果：用户可在首屏快速判断当天出行准备。</p>
+          <p>复盘：后续可加入空气质量和降雨概率图表。</p>
+        </article>
+
+        <div class="hero-actions reveal" style="margin-top: 6px">
+          <a class="btn" href="portfolio.html">返回作品页</a>
+          <a class="btn" href="life.html">继续看生活记录</a>
+        </div>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

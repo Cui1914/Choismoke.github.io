@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于我 | 个人网站雏形</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="about">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">About Me</div>
+          <h1>关于我</h1>
+          <p>一个在项目与生活之间持续记录、持续迭代的人。</p>
+        </div>
+
+        <div class="card-grid cols-2">
+          <article class="card reveal">
+            <h3>个人简介</h3>
+            <p>
+              我主要做计算机项目，也会稳定记录学习过程和生活体验。这个网站希望同时呈现能力、节奏与价值观。
+            </p>
+          </article>
+          <article class="card reveal">
+            <h3>兴趣图谱</h3>
+            <p>
+              学习、运动、音乐、游戏、美食、旅游、思考、读书观影。它们共同影响我的项目判断和表达方式。
+            </p>
+          </article>
+        </div>
+
+        <section class="section" style="padding-bottom: 0">
+          <div class="section-head reveal">
+            <h2>联系与关注</h2>
+            <p>社交链接由 config.js 统一配置，后续替换时只改一个文件。</p>
+          </div>
+          <div class="socials reveal">
+            <a href="#" data-social="github">GitHub</a>
+            <a href="#" data-social="bilibili">Bilibili</a>
+            <a href="#" data-social="email">邮箱</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

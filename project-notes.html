@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>轻量笔记面板 | 项目详情</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="portfolio">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container project-detail">
+        <div class="section-head reveal">
+          <div class="eyebrow">Project Case</div>
+          <h1>轻量笔记面板</h1>
+          <p>参考开源笔记应用，兼顾快速记录和结构化整理。</p>
+        </div>
+
+        <article class="panel reveal">
+          <h2>项目概览</h2>
+          <ul class="meta-list">
+            <li>周期：1 周</li>
+            <li>角色：独立开发</li>
+            <li>类型：前端应用</li>
+            <li>标签：Markdown / 本地存储 / 搜索</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2>背景与目标</h2>
+          <p>背景：碎片化记录容易丢失，查找历史内容效率低。</p>
+          <p>目标：做一个启动快、编辑轻、检索快的笔记面板。</p>
+        </article>
+
+        <article class="panel reveal">
+          <h2>方案与实现</h2>
+          <ul class="meta-list">
+            <li>模块 1：左侧笔记列表 + 右侧编辑预览</li>
+            <li>模块 2：按标题和关键词进行即时搜索</li>
+            <li>模块 3：本地缓存，刷新后可恢复内容</li>
+          </ul>
+        </article>
+
+        <article class="panel reveal">
+          <h2>结果与复盘</h2>
+          <p>结果：记录和检索效率提升，适合作为个人知识入口。</p>
+          <p>复盘：后续可扩展标签系统和多端同步。</p>
+        </article>
+
+        <div class="hero-actions reveal" style="margin-top: 6px">
+          <a class="btn" href="portfolio.html">返回作品页</a>
+          <a class="btn" href="life.html">继续看生活记录</a>
+        </div>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

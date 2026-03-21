@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>作品集 | 个人网站雏形</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="portfolio">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Portfolio</div>
+          <h1>计算机项目作品集</h1>
+          <p>V2 增加了项目详情页结构，卡片可直接跳转到详情模板。</p>
+        </div>
+
+        <div class="filters reveal" data-filter-group>
+          <button class="filter-btn active" data-filter="all">全部</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="data">数据</button>
+          <button class="filter-btn" data-filter="automation">自动化</button>
+        </div>
+
+        <div class="card-grid cols-2">
+          <article class="card reveal" data-category="web">
+            <h3>微型短链接服务</h3>
+            <p>
+              参考轻量 URL Shortener 项目，做了短链接生成、跳转和基础访问记录。
+            </p>
+            <div class="tag-row">
+              <span class="tag">Web</span>
+              <span class="tag">链接工具</span>
+            </div>
+            <a class="project-link" href="project-sample.html">查看项目详情</a>
+          </article>
+
+          <article class="card reveal" data-category="data">
+            <h3>天气速览页</h3>
+            <p>
+              参考简洁天气应用项目，聚焦实时天气、未来预报和城市切换体验。
+            </p>
+            <div class="tag-row">
+              <span class="tag">数据可视化</span>
+              <span class="tag">信息展示</span>
+            </div>
+            <a class="project-link" href="project-weather.html">查看项目详情</a>
+          </article>
+
+          <article class="card reveal" data-category="automation">
+            <h3>任务清单 API</h3>
+            <p>
+              参考小型 Todo API 项目，搭建任务增删改查和状态流转的后端接口。
+            </p>
+            <div class="tag-row">
+              <span class="tag">后端</span>
+              <span class="tag">REST API</span>
+            </div>
+            <a class="project-link" href="project-todo-api.html">查看项目详情</a>
+          </article>
+
+          <article class="card reveal" data-category="web">
+            <h3>轻量笔记面板</h3>
+            <p>
+              参考开源笔记项目，支持 Markdown 输入、列表管理和快速检索。
+            </p>
+            <div class="tag-row">
+              <span class="tag">前端应用</span>
+              <span class="tag">Markdown</span>
+            </div>
+            <a class="project-link" href="project-notes.html">查看项目详情</a>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div>下一步推荐：继续浏览生活记录</div>
+        <div class="hero-actions" style="margin-top: 10px">
+          <a class="btn primary" href="life.html">去生活页</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

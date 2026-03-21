@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>主页 | 个人网站雏形</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <article class="panel hero-main reveal">
+            <div class="eyebrow">个人网站定位</div>
+            <h1>Choismoke的个人站</h1>
+            <p class="lead">Be yourself!!!</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="portfolio.html">进入作品集</a>
+              <a class="btn" href="life.html">浏览生活记录</a>
+            </div>
+          </article>
+
+          <aside class="panel hero-side reveal">
+            <h3>当前状态</h3>
+            <ul class="stat-list">
+              <li>
+                <span class="stat-value">每周更新 1 次</span>
+                记录学习、运动、音乐、游戏与阅读观影
+              </li>
+              <li>
+                <span class="stat-value">作品持续迭代</span>
+                重点补全可复用、可展示的计算机项目
+              </li>
+              <li>
+                <span class="stat-value">社交统一配置</span>
+                全站社交链接由 config.js 统一管理
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>精选项目预览</h2>
+            <p>V2 已支持项目详情页模板，可从作品页跳转。</p>
+          </div>
+          <div class="card-grid cols-3">
+            <article class="card reveal">
+              <h3>微型短链接服务</h3>
+              <p>参考轻量短链项目思路，提供链接缩短、跳转和基础统计能力。</p>
+              <div class="tag-row">
+                <span class="tag">Web</span>
+                <span class="tag">效率</span>
+              </div>
+            </article>
+            <article class="card reveal">
+              <h3>天气速览页</h3>
+              <p>参考开源天气应用结构，聚焦实时天气、未来预报和简洁视觉展示。</p>
+              <div class="tag-row">
+                <span class="tag">数据分析</span>
+                <span class="tag">可视化</span>
+              </div>
+            </article>
+            <article class="card reveal">
+              <h3>任务清单 API</h3>
+              <p>参考小型后端项目，围绕任务的增删改查和状态跟踪建立接口层。</p>
+              <div class="tag-row">
+                <span class="tag">自动化</span>
+                <span class="tag">工具</span>
+              </div>
+            </article>
+          </div>
+          <div class="hero-actions reveal" style="margin-top: 16px">
+            <a class="btn" href="portfolio.html">查看完整作品</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>最新生活片段</h2>
+            <p>V2 已提供可复制的周记模板，方便每周统一更新。</p>
+          </div>
+          <div class="card-grid cols-2">
+            <article class="card reveal">
+              <h3>本周学习</h3>
+              <p>完成一个小功能闭环，并补了一次系统复盘，重点关注可维护性。</p>
+            </article>
+            <article class="card reveal">
+              <h3>本周生活</h3>
+              <p>运动 3 次，听了两张新专辑，周末看了电影并写了短笔记。</p>
+            </article>
+          </div>
+          <div class="hero-actions reveal" style="margin-top: 16px">
+            <a class="btn" href="life.html">进入生活记录</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div>关注我</div>
+        <div class="socials">
+          <a href="#" data-social="github" aria-label="GitHub">GitHub</a>
+          <a href="#" data-social="bilibili" aria-label="Bilibili">Bilibili</a>
+          <a href="#" data-social="email" aria-label="Email">邮箱</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
