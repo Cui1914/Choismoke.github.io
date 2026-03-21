@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>注册 | 烟灰缸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="forum">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="forum.html">烟灰缸</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="auth-shell">
+        <article class="panel auth-card reveal">
+          <div class="section-head">
+            <div class="eyebrow">Create Account</div>
+            <h1>注册烟灰缸账号</h1>
+            <p>用户名支持中文、英文、数字和下划线，长度 2-10 位，后续可修改 10 次。</p>
+          </div>
+
+          <form class="form-grid">
+            <div class="field">
+              <label for="register-name">用户名</label>
+              <input id="register-name" type="text" placeholder="输入 2-10 位用户名" />
+            </div>
+            <div class="field">
+              <label for="register-email">邮箱</label>
+              <input id="register-email" type="email" placeholder="name@gmail.com" />
+              <div class="hint">格式正确即可注册，不强制邮箱验证。</div>
+            </div>
+            <div class="field">
+              <label for="register-password">密码</label>
+              <input id="register-password" type="password" placeholder="设置密码" />
+            </div>
+            <div class="field">
+              <label for="register-bio">个人简介</label>
+              <textarea id="register-bio" placeholder="50 字以内简介"></textarea>
+            </div>
+            <div class="hero-actions" style="margin-top: 4px">
+              <a class="btn primary" href="forum-profile.html">注册预览</a>
+              <a class="btn" href="forum-login.html">已有账号，去登录</a>
+            </div>
+          </form>
+        </article>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

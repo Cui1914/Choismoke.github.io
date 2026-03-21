@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>发帖 | 烟灰缸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="forum">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="forum.html">烟灰缸</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container auth-shell">
+        <article class="panel auth-card reveal">
+          <div class="section-head">
+            <div class="eyebrow">Create Thread</div>
+            <h1>发布新帖子</h1>
+            <p>标题最长 17 字，正文最长 300 字，支持图片、视频、代码块、标签和投票。</p>
+          </div>
+          <form class="form-grid">
+            <div class="field">
+              <label for="compose-title">标题</label>
+              <input id="compose-title" type="text" placeholder="输入标题（17 字以内）" />
+            </div>
+            <div class="field">
+              <label for="compose-category">分类</label>
+              <select id="compose-category">
+                <option>技术</option>
+                <option>生活</option>
+                <option>游戏</option>
+                <option>随便聊</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="compose-body">正文</label>
+              <textarea id="compose-body" placeholder="输入正文（300 字以内）"></textarea>
+            </div>
+            <div class="field">
+              <label for="compose-tags">标签</label>
+              <input id="compose-tags" type="text" placeholder="最多 5 个，自由创建" />
+            </div>
+            <div class="field">
+              <label for="compose-upload">图片 / 视频 / 代码块 / 投票</label>
+              <input id="compose-upload" type="text" placeholder="前端预览阶段，后续接入真实上传与编辑器" />
+            </div>
+            <div class="hero-actions" style="margin-top: 4px">
+              <a class="btn primary" href="forum-thread.html">预览帖子</a>
+              <a class="btn" href="forum.html">返回论坛</a>
+            </div>
+          </form>
+        </article>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

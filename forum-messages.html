@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>私信 | 烟灰缸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="forum">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="forum.html">烟灰缸</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container page-grid">
+        <section class="content-stack">
+          <article class="comment-box reveal">
+            <div class="panel-header">
+              <h1>与 QuietLoop 的私信</h1>
+              <a class="btn" href="#">拉黑用户</a>
+            </div>
+            <div class="comment-item">
+              <strong>QuietLoop</strong>
+              <div class="hint">今天 14:03</div>
+              <p>看到你在论坛里的帖子，想聊聊你做个人项目时的展示结构。</p>
+            </div>
+            <div class="comment-item">
+              <strong>我</strong>
+              <div class="hint">今天 14:10</div>
+              <p>可以，等后面我把论坛接成动态系统，再把私信功能真正接上。</p>
+            </div>
+          </article>
+
+          <article class="panel reveal" style="padding: 20px">
+            <div class="field">
+              <label for="message-body">发送消息</label>
+              <textarea id="message-body" placeholder="单条私信最多 200 字，后续支持图片上传"></textarea>
+            </div>
+            <div class="hero-actions">
+              <a class="btn primary" href="#">发送预览</a>
+            </div>
+          </article>
+        </section>
+
+        <aside class="sidebar-stack">
+          <section class="panel reveal" style="padding: 20px">
+            <h3>会话列表</h3>
+            <ul class="stack-list">
+              <li>QuietLoop · 今天</li>
+              <li>MonoNight · 昨天</li>
+              <li>ArchiveField · 2 天前</li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

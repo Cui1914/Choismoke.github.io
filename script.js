@@ -5,6 +5,7 @@ const navMap = {
   portfolio: "portfolio.html",
   life: "life.html",
   about: "about.html",
+  forum: "forum.html",
 };
 
 const navLinks = document.querySelectorAll(".nav-link");
@@ -65,7 +66,7 @@ if (filterGroup) {
     btn.addEventListener("click", () => {
       const selected = btn.dataset.filter;
 
-      buttons.forEach((b) => b.classList.remove("active"));
+      buttons.forEach((button) => button.classList.remove("active"));
       btn.classList.add("active");
 
       cards.forEach((card) => {

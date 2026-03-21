@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report | Ashtray Forum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="forum">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="portfolio.html">Work</a>
+          <a class="nav-link" href="life.html">Life</a>
+          <a class="nav-link" href="forum.html">Ashtray</a>
+          <a class="nav-link" href="about.html">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container auth-shell">
+        <article class="panel auth-card reveal">
+          <div class="section-head">
+            <div class="eyebrow">Report</div>
+            <h1>Report Content</h1>
+            <p>Reported content is hidden first. Repeated reports can trigger automatic restriction.</p>
+          </div>
+
+          <form class="form-grid">
+            <div class="field">
+              <label for="report-reason">Reason</label>
+              <select id="report-reason">
+                <option>I feel uncomfortable</option>
+                <option>Content is inaccurate</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="report-note">Note</label>
+              <textarea id="report-note" placeholder="Optional context for moderators"></textarea>
+            </div>
+            <div class="hero-actions">
+              <a class="btn primary" href="forum-thread.html">Submit preview</a>
+            </div>
+          </form>
+        </article>
+      </div>
+    </main>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

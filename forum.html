@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>烟灰缸 | Choismoke</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Space+Grotesk:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="forum">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">Choismoke</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">首页</a>
+          <a class="nav-link" href="portfolio.html">作品</a>
+          <a class="nav-link" href="life.html">生活</a>
+          <a class="nav-link" href="forum.html">烟灰缸</a>
+          <a class="nav-link" href="about.html">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="eyebrow">Forum Preview</div>
+          <h1>烟灰缸</h1>
+          <p>Choismoke 主站中的独立社区版块。当前先上线前端骨架，后续接入真实注册、发帖和互动系统。</p>
+        </div>
+
+        <div class="forum-layout">
+          <section class="forum-main">
+            <article class="announcement reveal">
+              <div class="eyebrow">置顶公告</div>
+              <h2>欢迎来到烟灰缸</h2>
+              <p>这里会开放技术、生活、游戏和随便聊四个主分类。游客可浏览，注册登录后可发帖、评论和互动。</p>
+              <div class="hero-actions">
+                <a class="btn primary" href="forum-register.html">注册</a>
+                <a class="btn" href="forum-login.html">登录</a>
+                <a class="btn" href="forum-compose.html">发帖页</a>
+              </div>
+            </article>
+
+            <div class="forum-toolbar reveal">
+              <div class="filters">
+                <button class="filter-btn active" type="button">综合</button>
+                <button class="filter-btn" type="button">最新</button>
+                <button class="filter-btn" type="button">最热</button>
+              </div>
+              <label class="search-box" aria-label="搜索">
+                <span>搜索</span>
+                <input type="text" placeholder="标题 / 正文 / 标签 / 用户名" />
+              </label>
+            </div>
+
+            <div class="filters reveal">
+              <a class="tag" href="forum-category.html">技术</a>
+              <a class="tag" href="forum-category.html">生活</a>
+              <a class="tag" href="forum-category.html">游戏</a>
+              <a class="tag" href="forum-category.html">随便聊</a>
+            </div>
+
+            <article class="forum-post reveal">
+              <div class="forum-post-head">
+                <h3><a href="forum-thread.html">你最近写项目时，最先关注功能闭环还是页面质感？</a></h3>
+                <span class="tag">技术</span>
+                <span class="tag">讨论</span>
+              </div>
+              <p>一个关于开发优先级的开放讨论。欢迎从产品、交互、工程实现三个角度聊聊你的判断标准。</p>
+              <div class="post-meta">
+                <span>作者：AshDrop</span>
+                <span class="meta-dot">•</span>
+                <span>浏览 238</span>
+                <span>点赞 41</span>
+                <span>评论 18</span>
+                <span>收藏 12</span>
+                <span>3 小时前</span>
+              </div>
+            </article>
+
+            <article class="forum-post reveal">
+              <div class="forum-post-head">
+                <h3><a href="forum-thread.html">最近在玩的独立游戏，有没有值得反复回味的？</a></h3>
+                <span class="tag">游戏</span>
+                <span class="tag">推荐</span>
+              </div>
+              <p>不只聊好不好玩，也聊为什么它会留下印象。可以从玩法、音乐、叙事或美术风格切入。</p>
+              <div class="post-meta">
+                <span>作者：QuietLoop</span>
+                <span class="meta-dot">•</span>
+                <span>浏览 186</span>
+                <span>点赞 29</span>
+                <span>评论 9</span>
+                <span>收藏 7</span>
+                <span>今天</span>
+              </div>
+            </article>
+
+            <article class="forum-post reveal">
+              <div class="forum-post-head">
+                <h3><a href="forum-thread.html">有没有一种日常节奏，是你觉得长期最舒服的？</a></h3>
+                <span class="tag">生活</span>
+                <span class="tag">随便聊</span>
+              </div>
+              <p>讨论学习、运动、娱乐和休息之间的平衡。也欢迎分享你保持状态的具体小习惯。</p>
+              <div class="post-meta">
+                <span>作者：NorthWindow</span>
+                <span class="meta-dot">•</span>
+                <span>浏览 145</span>
+                <span>点赞 24</span>
+                <span>评论 15</span>
+                <span>收藏 10</span>
+                <span>昨天</span>
+              </div>
+            </article>
+          </section>
+
+          <aside class="forum-side">
+            <section class="panel reveal">
+              <h3>今日热帖</h3>
+              <ul class="stack-list">
+                <li><a href="forum-thread.html">如何把个人项目做得更适合长期展示</a></li>
+                <li><a href="forum-thread.html">你最想重玩的单机游戏是哪一个</a></li>
+                <li><a href="forum-thread.html">最近一次让你印象很深的电影镜头</a></li>
+              </ul>
+            </section>
+
+            <section class="panel reveal">
+              <h3>热门标签</h3>
+              <div class="tag-row">
+                <span class="tag">前端</span>
+                <span class="tag">设计</span>
+                <span class="tag">效率</span>
+                <span class="tag">游戏体验</span>
+                <span class="tag">日常节奏</span>
+              </div>
+            </section>
+
+            <section class="panel reveal">
+              <h3>活跃用户</h3>
+              <ul class="stack-list">
+                <li><a href="forum-profile.html">SmokeSignal · 42 帖</a></li>
+                <li><a href="forum-profile.html">ArchiveField · 31 帖</a></li>
+                <li><a href="forum-profile.html">MonoNight · 24 帖</a></li>
+              </ul>
+            </section>
+
+            <section class="panel reveal">
+              <h3>快捷入口</h3>
+              <div class="hero-actions" style="margin-top: 12px">
+                <a class="btn" href="forum-profile.html">个人主页</a>
+                <a class="btn" href="forum-notifications.html">通知页</a>
+                <a class="btn" href="forum-messages.html">私信页</a>
+                <a class="btn" href="forum-admin.html">后台预览</a>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div>社区账号将与主站账号统一，当前页面为前端结构预览。</div>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

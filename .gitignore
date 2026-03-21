@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+
+node_modules/
+.next/
+dist/
+build/
+
+community-app/node_modules/
+community-app/.next/
