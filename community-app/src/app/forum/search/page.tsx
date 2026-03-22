@@ -1,20 +1,19 @@
 import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { StatsGrid } from "@/components/forum/stats-grid";
-import { searchMock } from "@/lib/forum/mock-data";
+import { getSearchResults } from "@/lib/forum/service";
 
-export default function SearchPage() {
-  const data = searchMock;
+export default async function SearchPage() {
+  const data = await getSearchResults();
 
   return (
     <AppShell current="forum">
       <div className="stack">
         <section className="hero">
-          <div className="eyebrow">Search</div>
-          <h1>Results for “{data.query}”</h1>
+          <div className="eyebrow">搜索</div>
+          <h1>“{data.query}” 的搜索结果</h1>
           <p className="lead">
-            Search covers thread titles, body text, tags, and usernames. This view makes the forum
-            feel searchable instead of just browseable.
+            搜索会覆盖帖子标题、正文、标签和用户名，让论坛不只是靠浏览，也能靠检索找到内容。
           </p>
         </section>
 
@@ -24,13 +23,13 @@ export default function SearchPage() {
           <section className="stack">
             <div className="toolbar">
               <label className="search">
-                <span>Query</span>
+                <span>关键词</span>
                 <input defaultValue={data.query} />
               </label>
               <div className="field-row">
-                <span className="tag">Best match</span>
-                <span className="tag">Latest</span>
-                <span className="tag">Most liked</span>
+                <span className="tag">最佳匹配</span>
+                <span className="tag">最新</span>
+                <span className="tag">最高赞</span>
               </div>
             </div>
 
@@ -58,7 +57,7 @@ export default function SearchPage() {
 
           <aside className="stack">
             <section className="panel">
-              <h3>Suggested users</h3>
+              <h3>相关用户</h3>
               <ul className="list">
                 {data.featuredUsers.map((user) => (
                   <li key={user.label}>

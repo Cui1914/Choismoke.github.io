@@ -5,9 +5,9 @@ import { PageIntro } from "@/components/forum/page-intro";
 import { QuickLinksPanel } from "@/components/forum/quick-links-panel";
 import { SidebarListPanel } from "@/components/forum/sidebar-list-panel";
 import { StatsGrid } from "@/components/forum/stats-grid";
-import { forumHomeMock } from "@/lib/forum/mock-data";
+import { getForumHome } from "@/lib/forum/service";
 
-export default function ForumPage() {
+export default async function ForumPage() {
   const {
     announcement,
     categories,
@@ -18,7 +18,7 @@ export default function ForumPage() {
     threads,
     hotTopics,
     activeUsers,
-  } = forumHomeMock;
+  } = await getForumHome();
 
   return (
     <AppShell current="forum">

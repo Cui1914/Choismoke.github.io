@@ -10,7 +10,7 @@ export default function ComposePage() {
           <div className="eyebrow">发帖</div>
           <h1>发布新帖子</h1>
           <p className="section-copy">
-            标题最长 17 字，正文最长 300 字，支持图片、视频、代码块、标签和投票。
+            这一页已经为真实发帖接口预留好了结构。后续接入真实内容系统后，这里会直接把标题、正文、分类和标签提交到论坛。
           </p>
           <form className="form-grid">
             <div className="field">
@@ -34,9 +34,9 @@ export default function ComposePage() {
               <label htmlFor="tags">标签</label>
               <input id="tags" type="text" placeholder="最多 5 个，自由创建" />
             </div>
-            <div className="field">
-              <label htmlFor="addons">图片 / 视频 / 代码块 / 投票</label>
-              <input id="addons" type="text" placeholder="后续会接入真实上传和编辑器能力" />
+            <div className="field-row" style={{ justifyContent: "space-between" }}>
+              <span className="hint">后续接口：`/api/forum/threads`</span>
+              <span className="hint">发布后会进入真实帖子流</span>
             </div>
             <div className="action-row">
               <Link className="button primary" href="/forum/thread">
@@ -49,18 +49,18 @@ export default function ComposePage() {
         <section className="helper-grid">
           <InfoCard
             eyebrow="限制"
-            title="内容规则"
-            description="单帖最多 10 张图片、5 个标签、7 个投票选项。评论最长 50 字，私信最长 200 字。"
+            title="发帖规则"
+            description="单帖最多 10 张图片、5 个标签、7 个投票选项。真实发帖接入后，这些规则会直接在接口层生效。"
           />
           <InfoCard
-            eyebrow="编辑器"
-            title="支持能力"
-            description="后续会补富文本、代码块插入、媒体上传入口和更完整的投票配置。"
+            eyebrow="内容"
+            title="发布后的去向"
+            description="发帖成功后，内容会进入首页帖子流、分类页和用户个人主页的最近发帖区域。"
           />
           <InfoCard
-            eyebrow="审核"
-            title="发布规则"
-            description="被举报的内容会先隐藏。累计被举报达到阈值后，会触发自动限制并进入管理员处理流程。"
+            eyebrow="下一步"
+            title="还差什么"
+            description="后面只需要把当前占位接口接到真实内容存储，发帖就会从预览变成真的发出去。"
           />
         </section>
       </div>

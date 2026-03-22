@@ -2,10 +2,10 @@ import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { InfoCard } from "@/components/forum/info-card";
 import { StatsGrid } from "@/components/forum/stats-grid";
-import { threadDetailMock } from "@/lib/forum/mock-data";
+import { getThreadDetail } from "@/lib/forum/service";
 
-export default function ThreadPage() {
-  const thread = threadDetailMock;
+export default async function ThreadPage() {
+  const thread = await getThreadDetail();
 
   return (
     <AppShell current="forum">
@@ -104,6 +104,13 @@ export default function ThreadPage() {
                 </div>
               </div>
             ))}
+            <div className="field" style={{ marginTop: 16 }}>
+              <label htmlFor="reply">回复内容</label>
+              <textarea
+                id="reply"
+                placeholder="后续会通过 `/api/forum/comments` 把这里的内容提交成真实评论。"
+              />
+            </div>
           </section>
         </section>
 
@@ -130,9 +137,9 @@ export default function ThreadPage() {
           </section>
 
           <InfoCard
-            eyebrow="帖子信号"
-            title="互动概览"
-            description="这条帖子已经有足够的浏览、回复和收藏量，后续可以自然地出现在综合流和热帖区域。"
+            eyebrow="评论接口"
+            title="回复已准备接入"
+            description="帖子详情页已经给真实评论提交接口预留了入口。后续只需要接入真实存储，回复就会真的出现在评论区。"
           />
         </aside>
       </div>

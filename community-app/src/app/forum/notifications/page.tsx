@@ -1,6 +1,6 @@
 import { AppShell } from "@/components/app-shell";
 import { StatsGrid } from "@/components/forum/stats-grid";
-import { notificationsMock } from "@/lib/forum/mock-data";
+import { getNotifications } from "@/lib/forum/service";
 
 const kindLabels = {
   reply: "回复",
@@ -10,8 +10,8 @@ const kindLabels = {
   system: "系统",
 } as const;
 
-export default function NotificationsPage() {
-  const data = notificationsMock;
+export default async function NotificationsPage() {
+  const data = await getNotifications();
 
   return (
     <AppShell current="forum">
@@ -20,7 +20,7 @@ export default function NotificationsPage() {
           <div className="eyebrow">通知</div>
           <h1>通知中心</h1>
           <p className="lead">
-            回复、点赞、关注、举报处理结果和系统公告都会统一收进这里，避免论坛体验过于嘈杂。
+            回复、点赞、关注、举报处理结果和系统公告都会统一收进这里。下一步接真实通知时，这一页不需要重做，只需要把数据替换成真实内容。
           </p>
         </section>
 
@@ -36,7 +36,7 @@ export default function NotificationsPage() {
                   </span>
                 ))}
               </div>
-              <div className="hint">当前有 12 条未读</div>
+              <div className="hint">当前有 12 条未读，后续可接 `/api/forum/notifications/read`</div>
             </div>
 
             <section className="table-card">
@@ -65,11 +65,11 @@ export default function NotificationsPage() {
 
           <aside className="stack">
             <section className="panel">
-              <h3>通知规则</h3>
+              <h3>通知准备状态</h3>
               <ul className="list">
-                <li>回复和点赞要足够及时。</li>
-                <li>系统公告应该可见，但不能打扰过度。</li>
-                <li>举报结果的状态说明必须明确。</li>
+                <li>通知列表接口已存在。</li>
+                <li>标记已读接口占位已存在。</li>
+                <li>后续只需要接真实用户通知数据。</li>
               </ul>
             </section>
           </aside>

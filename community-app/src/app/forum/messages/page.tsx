@@ -1,8 +1,8 @@
 import { AppShell } from "@/components/app-shell";
-import { messagesMock } from "@/lib/forum/mock-data";
+import { getMessages } from "@/lib/forum/service";
 
-export default function MessagesPage() {
-  const data = messagesMock;
+export default async function MessagesPage() {
+  const data = await getMessages();
 
   return (
     <AppShell current="forum">
@@ -64,7 +64,7 @@ export default function MessagesPage() {
               <label htmlFor="message">发送消息</label>
               <textarea
                 id="message"
-                placeholder="单条消息最长 200 字，后续会在这里接入图片发送。"
+                placeholder="单条消息最长 200 字，后续会通过 `/api/forum/messages/send` 接入真实发送。"
               />
             </div>
             <div className="action-row">

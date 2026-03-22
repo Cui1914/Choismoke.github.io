@@ -4,11 +4,11 @@ import { ActivityFeed } from "@/components/forum/activity-feed";
 import { ProfileSummaryCard } from "@/components/forum/profile-summary-card";
 import { SidebarListPanel } from "@/components/forum/sidebar-list-panel";
 import { StatsGrid } from "@/components/forum/stats-grid";
-import { forumProfileMock } from "@/lib/forum/mock-data";
+import { getForumProfile } from "@/lib/forum/service";
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
   const { highlights, recentActivity, recentThreads, relationStats, stats, summary } =
-    forumProfileMock;
+    await getForumProfile();
 
   return (
     <AppShell current="forum">
@@ -26,9 +26,9 @@ export default function ProfilePage() {
           <section className="stack">
             <section className="panel">
               <div className="field-row" style={{ justifyContent: "space-between" }}>
-                <h2>Recent threads</h2>
+                <h2>最近发帖</h2>
                 <Link className="button" href="/forum/thread">
-                  View thread
+                  查看帖子
                 </Link>
               </div>
               <ul className="list">
@@ -38,15 +38,15 @@ export default function ProfilePage() {
               </ul>
             </section>
 
-            <ActivityFeed title="Recent activity" items={recentActivity.items} />
+            <ActivityFeed title="最近动态" items={recentActivity.items} />
           </section>
 
           <aside className="stack">
-            <SidebarListPanel title="Focus areas" items={highlights.items} />
+            <SidebarListPanel title="个人侧重点" items={highlights.items} />
 
             <section className="helper-card">
-              <div className="eyebrow">Relations</div>
-              <h3>Relation overview</h3>
+              <div className="eyebrow">关系概览</div>
+              <h3>关注与好友</h3>
               <div className="meta-row">
                 {relationStats.map((item) => (
                   <span key={item.label}>

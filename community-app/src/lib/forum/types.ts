@@ -199,3 +199,83 @@ export type ForumProfilePayload = {
   highlights: ApiListResponse<SidebarItem>;
   relationStats: StatItem[];
 };
+
+export type AuthUser = {
+  id: string;
+  username: string;
+  email: string;
+  bio: string;
+  avatarUrl?: string;
+  usernameChangesUsed: number;
+  usernameChangesLimit: number;
+};
+
+export type AuthSession = {
+  isAuthenticated: boolean;
+  user: AuthUser | null;
+  canPost: boolean;
+  canMessage: boolean;
+};
+
+export type LoginPayload = {
+  email: string;
+  password: string;
+};
+
+export type RegisterPayload = {
+  username: string;
+  email: string;
+  password: string;
+  bio: string;
+};
+
+export type AuthResponse = {
+  ok: boolean;
+  message: string;
+  session: AuthSession;
+};
+
+export type NotificationActionPayload = {
+  notificationId: string;
+};
+
+export type NotificationActionResponse = {
+  ok: boolean;
+  message: string;
+  unreadCount: number;
+};
+
+export type SendMessagePayload = {
+  threadId: string;
+  body: string;
+};
+
+export type SendMessageResponse = {
+  ok: boolean;
+  message: string;
+  threadId: string;
+};
+
+export type CreateThreadPayload = {
+  title: string;
+  category: string;
+  body: string;
+  tags: string[];
+};
+
+export type CreateThreadResponse = {
+  ok: boolean;
+  message: string;
+  threadId: string;
+};
+
+export type CreateCommentPayload = {
+  threadId: string;
+  body: string;
+};
+
+export type CreateCommentResponse = {
+  ok: boolean;
+  message: string;
+  commentId: string;
+};
