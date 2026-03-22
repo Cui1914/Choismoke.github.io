@@ -1,50 +1,37 @@
-import {
-  forumHomeMock,
-  forumProfileMock,
-  messagesMock,
-  notificationsMock,
-  searchMock,
-  threadDetailMock,
-} from "./mock-data";
+import { forumRepository } from "./repository";
 import type {
   CreateCommentPayload,
   CreateCommentResponse,
   CreateThreadPayload,
   CreateThreadResponse,
-  ForumHomePayload,
-  ForumProfilePayload,
-  MessagesPayload,
   NotificationActionPayload,
   NotificationActionResponse,
-  NotificationsPayload,
-  SearchPayload,
   SendMessagePayload,
   SendMessageResponse,
-  ThreadDetailPayload,
 } from "./types";
 
-export async function getForumHome(): Promise<ForumHomePayload> {
-  return forumHomeMock;
+export async function getForumHome() {
+  return forumRepository.getHome();
 }
 
-export async function getForumProfile(): Promise<ForumProfilePayload> {
-  return forumProfileMock;
+export async function getForumProfile() {
+  return forumRepository.getProfile();
 }
 
-export async function getThreadDetail(): Promise<ThreadDetailPayload> {
-  return threadDetailMock;
+export async function getThreadDetail() {
+  return forumRepository.getThreadDetail();
 }
 
-export async function getNotifications(): Promise<NotificationsPayload> {
-  return notificationsMock;
+export async function getNotifications() {
+  return forumRepository.getNotifications();
 }
 
-export async function getMessages(): Promise<MessagesPayload> {
-  return messagesMock;
+export async function getMessages() {
+  return forumRepository.getMessages();
 }
 
-export async function getSearchResults(): Promise<SearchPayload> {
-  return searchMock;
+export async function getSearchResults() {
+  return forumRepository.getSearchResults();
 }
 
 export async function markNotificationRead(

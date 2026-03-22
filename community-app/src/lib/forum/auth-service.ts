@@ -1,29 +1,12 @@
+import { authRepository } from "./auth-repository";
 import type {
   AuthResponse,
-  AuthSession,
-  AuthUser,
   LoginPayload,
   RegisterPayload,
 } from "./types";
 
-const mockUser: AuthUser = {
-  id: "user-choismoke",
-  username: "Choismoke",
-  email: "cui11914@gmail.com",
-  bio: "记录项目、生活、游戏和思考。",
-  usernameChangesUsed: 3,
-  usernameChangesLimit: 10,
-};
-
-const mockSession: AuthSession = {
-  isAuthenticated: true,
-  user: mockUser,
-  canPost: true,
-  canMessage: true,
-};
-
-export async function getAuthSession(): Promise<AuthSession> {
-  return mockSession;
+export async function getAuthSession() {
+  return authRepository.getSession();
 }
 
 export async function loginWithEmail(payload: LoginPayload): Promise<AuthResponse> {
@@ -46,7 +29,7 @@ export async function loginWithEmail(payload: LoginPayload): Promise<AuthRespons
   return {
     ok: true,
     message: "登录接口占位已准备好，后续只需要接入真实账号系统。",
-    session: mockSession,
+    session: await authRepository.getSession(),
   };
 }
 
@@ -69,17 +52,21 @@ export async function registerWithEmail(payload: RegisterPayload): Promise<AuthR
     };
   }
 
+  const baseUser = await authRepository.getMockUser();
+
   return {
     ok: true,
     message: "注册接口占位已准备好，后续只需要接入真实存储和账号系统。",
     session: {
-      ...mockSession,
+      isAuthenticated: true,
       user: {
-        ...mockUser,
+        ...baseUser,
         username: payload.username,
         email: payload.email,
         bio: payload.bio,
       },
+      canPost: true,
+      canMessage: true,
     },
   };
 }
