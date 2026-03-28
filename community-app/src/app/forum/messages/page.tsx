@@ -1,8 +1,10 @@
 import { AppShell } from "@/components/app-shell";
+import { MessageComposer } from "@/components/forum/message-composer";
+import { getAuthSession } from "@/lib/forum/auth-service";
 import { getMessages } from "@/lib/forum/service";
 
 export default async function MessagesPage() {
-  const data = await getMessages();
+  const [data, session] = await Promise.all([getMessages(), getAuthSession()]);
 
   return (
     <AppShell current="forum">
@@ -60,17 +62,14 @@ export default async function MessagesPage() {
           </section>
 
           <section className="panel">
-            <div className="field">
-              <label htmlFor="message">发送消息</label>
-              <textarea
-                id="message"
-                placeholder="单条消息最长 200 字，后续会通过 `/api/forum/messages/send` 接入真实发送。"
-              />
-            </div>
-            <div className="action-row">
-              <button className="button">添加图片</button>
-              <button className="button primary">发送预览</button>
-            </div>
+            {session.restrictionReason ? (
+              <div className="notice-inline">
+                <strong>当前不能发送私信</strong>
+                <p>{session.restrictionReason}</p>
+              </div>
+            ) : (
+              <MessageComposer canMessage={session.canMessage} threadId={data.currentThread.id} />
+            )}
           </section>
         </section>
       </div>
