@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "id": "user-choismoke",
+      "username": "Choismoke",
+      "email": "cui11914@gmail.com",
+      "bio": "记录项目、生活、游戏和思考。",
+      "usernameChangesUsed": 3,
+      "usernameChangesLimit": 10,
+      "followingVisibility": "公开",
+      "followersVisibility": "公开",
+      "dmPolicy": "互关前允许 1 条",
+      "blockedUsers": [],
+      "githubUrl": "https://github.com/Cui1914",
+      "bilibiliUrl": "https://space.bilibili.com/353704869",
+      "publicEmail": "cui11914@gmail.com",
+      "status": "active",
+      "reportCount": 0,
+      "mutedUntil": null,
+      "bannedUntil": null,
+      "passwordHash": "2584d88da8f37a1aca1c5fcec2cb6dfd15bcd4fcc97bf497c99a59949dea593092909d780c7a00d1809e20e5884f0e127fe5b131738dc8c2c48934e01910c13c",
+      "passwordSalt": "83c2e5d224241e5fe464c88bd40af781"
+    }
+  ],
+  "sessions": []
+}

@@ -2,8 +2,6 @@ const page = document.body.dataset.page;
 
 const navMap = {
   home: "index.html",
-  portfolio: "portfolio.html",
-  life: "life.html",
   about: "about.html",
   forum: "forum.html",
 };

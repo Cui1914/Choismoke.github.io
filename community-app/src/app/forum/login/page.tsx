@@ -1,40 +1,25 @@
-import Link from "next/link";
-import { AppShell } from "@/components/app-shell";
+﻿import { AppShell } from "@/components/app-shell";
+import { AuthLoginForm } from "@/components/forum/auth-login-form";
+import { getAuthSession } from "@/lib/forum/auth-service";
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const session = await getAuthSession();
+
   return (
     <AppShell current="forum">
       <section className="panel form-card">
         <div className="eyebrow">登录</div>
         <h1>登录烟灰缸</h1>
         <p className="section-copy">
-          这一步已经为真实邮箱登录预留好了接口入口。后续接入真实账号系统后，这里会直接变成可用的登录页。
+          使用邮箱和密码登录。登录后可发帖、评论、私信和举报。
         </p>
-        <form className="form-grid">
-          <div className="field">
-            <label htmlFor="email">邮箱</label>
-            <input id="email" type="email" placeholder="you@example.com" />
-            <div className="hint">会校验邮箱格式，并提示常见邮箱后缀。</div>
+        {session.restrictionReason ? (
+          <div className="notice-inline">
+            <strong>账号当前受限</strong>
+            <p>{session.restrictionReason}</p>
           </div>
-          <div className="field">
-            <label htmlFor="password">密码</label>
-            <input id="password" type="password" placeholder="输入至少 6 位密码" />
-          </div>
-          <div className="field-row" style={{ justifyContent: "space-between" }}>
-            <span className="hint">后续接口：`/api/auth/login`、`/api/auth/session`</span>
-            <a className="hint" href="#">
-              忘记密码
-            </a>
-          </div>
-          <div className="action-row">
-            <Link className="button primary" href="/forum/profile">
-              登录预览
-            </Link>
-            <Link className="button" href="/forum/register">
-              没有账号，去注册
-            </Link>
-          </div>
-        </form>
+        ) : null}
+        <AuthLoginForm />
       </section>
     </AppShell>
   );

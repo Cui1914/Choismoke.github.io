@@ -1,4 +1,4 @@
-import type {
+﻿import type {
   ApiMeta,
   ForumHomePayload,
   ForumProfilePayload,
@@ -9,8 +9,8 @@ import type {
 } from "./types";
 
 const baseMeta: ApiMeta = {
-  requestId: "mock-forum-v2",
-  generatedAt: "2026-03-21T12:00:00+08:00",
+  requestId: "mock-forum-v3",
+  generatedAt: "2026-03-23T12:00:00+08:00",
 };
 
 export const forumHomeMock: ForumHomePayload = {
@@ -25,7 +25,7 @@ export const forumHomeMock: ForumHomePayload = {
   announcement: {
     title: "社区当前状态",
     body:
-      "这一版前端预览已经按你定义的论坛规则组织完成：四个主分类、公开阅读、账号互动和可扩展的管理能力都已经体现在页面结构里。",
+      "这一版已经覆盖论坛首页、帖子详情、发帖、通知、私信、设置、后台和举报预览，并开始接入本地真实保存。",
     tone: "important",
   },
   stats: [
@@ -96,18 +96,9 @@ export const forumHomeMock: ForumHomePayload = {
   hotTopics: {
     meta: baseMeta,
     items: [
-      {
-        id: "hot-long-term-showcase",
-        title: "个人项目怎样展示，才更适合长期保留和持续更新？",
-      },
-      {
-        id: "hot-replay-title",
-        title: "如果现在要你立刻重玩一款单机游戏，你会选哪一个？",
-      },
-      {
-        id: "hot-film-shot",
-        title: "最近有没有哪个电影镜头，过了很久还留在你脑子里？",
-      },
+      { id: "hot-showcase", title: "个人项目怎样展示，才更适合长期保留和持续更新？" },
+      { id: "hot-replay", title: "如果现在要你立刻重玩一款单机游戏，你会选哪一款？" },
+      { id: "hot-film", title: "最近有没有哪个电影镜头，过了很久还留在你脑子里？" },
     ],
   },
   activeUsers: {
@@ -139,31 +130,16 @@ export const forumProfileMock: ForumProfilePayload = {
   recentThreads: {
     meta: baseMeta,
     items: [
-      {
-        label: "做个人项目时，你会先保证功能闭环还是先打磨质感？",
-        href: "/forum/thread",
-      },
-      {
-        label: "个人项目里，有没有必要保留完整的复盘记录？",
-        href: "/forum/thread",
-      },
-      {
-        label: "哪些界面细节最能提升作品的完成度感受？",
-        href: "/forum/thread",
-      },
+      { label: "做个人项目时，你会先保证功能闭环还是先打磨质感？", href: "/forum/thread" },
+      { label: "个人项目里，有没有必要保留完整的复盘记录？", href: "/forum/thread" },
+      { label: "哪些界面细节最能提升作品的完成度感受？", href: "/forum/thread" },
     ],
   },
   recentActivity: {
     meta: baseMeta,
     items: [
-      {
-        time: "今天",
-        text: "发布了 1 篇新帖子，并参与了 3 条讨论回复。",
-      },
-      {
-        time: "昨天",
-        text: "更新了个人简介和公开社交链接。",
-      },
+      { time: "今天", text: "发布了 1 篇新帖子，并参与了 3 条讨论回复。" },
+      { time: "昨天", text: "更新了个人简介和公开社交链接。" },
     ],
   },
   highlights: {
@@ -182,6 +158,7 @@ export const forumProfileMock: ForumProfilePayload = {
 };
 
 export const threadDetailMock: ThreadDetailPayload = {
+  id: "thread-product-vs-polish",
   meta: baseMeta,
   title: "做个人项目时，你会先保证功能闭环还是先打磨质感？",
   author: "AshDrop",
@@ -189,8 +166,8 @@ export const threadDetailMock: ThreadDetailPayload = {
   editedAt: "今天 11:02",
   tags: ["前端", "产品思考", "开发流程"],
   body: [
-    "个人项目经常会同时面临两个方向的拉扯：一边是尽快把核心路径做通，另一边是希望页面和整体气质尽早达到可以展示的状态。",
-    "我现在更倾向于先把最小可用闭环完成，再去补动画、排版、细节和整体完成度。但如果这个项目本身就是作品型项目，过于粗糙的呈现也可能直接削弱继续做下去的动力。",
+    "个人项目经常会同时面对两个方向的拉扯：一边是尽快把核心路径做通，另一边是希望页面和整体气质尽早达到可以展示的状态。",
+    "我现在更倾向于先把最小可用闭环完成，再去补动效、排版、细节和整体完成度。但如果这个项目本身就是作品型项目，过于粗糙的呈现也可能直接削弱继续做下去的动力。",
     "想听听大家在不同项目场景里的判断标准，尤其是做作品站、个人工具或展示型页面时，你会怎么平衡这两件事。",
   ],
   stats: [
@@ -266,7 +243,7 @@ export const notificationsMock: NotificationsPayload = {
         id: "n1",
         kind: "reply",
         title: "MonoNight 回复了你的帖子",
-        detail: "“我一般会先让一条核心路径可用，界面早期只要保证可读性就够了。”",
+        detail: "我一般会先让一条核心路径可用，界面早期先保证可读性。",
         time: "10 分钟前",
         unread: true,
       },
@@ -282,7 +259,7 @@ export const notificationsMock: NotificationsPayload = {
         id: "n3",
         kind: "follow",
         title: "ArchiveField 回关了你",
-        detail: "现在你们之间的私信不再受“首条消息”限制。",
+        detail: "现在你们之间的私信不再受首条消息限制。",
         time: "今天",
       },
       {
@@ -306,9 +283,10 @@ export const notificationsMock: NotificationsPayload = {
 export const messagesMock: MessagesPayload = {
   meta: baseMeta,
   currentThread: {
+    id: "m1",
     name: "QuietLoop",
     status: "已互关，可正常发送图片和连续私信",
-    intro: "你们已经互相关注，因此当前会话不受“陌生人仅可先发 1 条消息”的限制。",
+    intro: "你们已经互相关注，因此当前会话不受陌生人仅可先发 1 条消息的限制。",
   },
   threads: {
     meta: baseMeta,
@@ -347,14 +325,14 @@ export const messagesMock: MessagesPayload = {
         sender: "other",
         author: "QuietLoop",
         time: "今天 14:03",
-        body: "看到你在论坛里的帖子，想问问你是怎么处理“项目还在更新中，但又想展示出去”这件事的。",
+        body: "看到你在论坛里的帖子，想问问你是怎么处理‘项目还在更新中，但又想展示出去’这件事的。",
       },
       {
         id: "mb2",
         sender: "me",
         author: "我",
         time: "今天 14:10",
-        body: "我一般会留一个稳定的公开概述页，把实验性的过程和临时思路放进周记里，这样项目页本身会更清晰。",
+        body: "我一般会留一个稳定的公开概述页，把实验性的过程和临时思路放进周记里，这样项目页本身会更清楚。",
       },
       {
         id: "mb3",
@@ -387,7 +365,7 @@ export const searchMock: SearchPayload = {
       {
         id: "s1",
         title: "个人项目在发布前，应该打磨到什么程度？",
-        excerpt: "一条长期讨论串，核心是“质感”从什么时候开始真正帮助项目，而不是拖慢它。",
+        excerpt: "一条长期讨论串，核心是‘质感’从什么时候开始真正帮助项目，而不是拖慢它。",
         meta: ["作者：ArchiveField", "浏览 128", "点赞 19"],
         tags: ["设计", "作品集"],
       },

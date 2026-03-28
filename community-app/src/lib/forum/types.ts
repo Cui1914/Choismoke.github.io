@@ -1,4 +1,4 @@
-export type ApiMeta = {
+﻿export type ApiMeta = {
   requestId: string;
   generatedAt: string;
 };
@@ -82,7 +82,13 @@ export type PollOption = {
   votes: number;
 };
 
+export type ThreadAvailability = {
+  status: "visible" | "hidden" | "deleted";
+  message?: string;
+};
+
 export type ThreadDetailPayload = {
+  id: string;
   meta: ApiMeta;
   title: string;
   author: string;
@@ -92,6 +98,7 @@ export type ThreadDetailPayload = {
   body: string[];
   stats: StatItem[];
   actions: StatItem[];
+  availability?: ThreadAvailability;
   poll: {
     question: string;
     totalVotes: number;
@@ -141,6 +148,7 @@ export type MessageThread = {
 export type MessagesPayload = {
   meta: ApiMeta;
   currentThread: {
+    id: string;
     name: string;
     status: string;
     intro: string;
@@ -208,6 +216,19 @@ export type AuthUser = {
   avatarUrl?: string;
   usernameChangesUsed: number;
   usernameChangesLimit: number;
+  followingVisibility?: "公开" | "隐藏";
+  followersVisibility?: "公开" | "隐藏";
+  dmPolicy?: "互关前允许 1 条" | "仅好友可私信";
+  blockedUsers?: string[];
+  githubUrl?: string;
+  bilibiliUrl?: string;
+  publicEmail?: string;
+  status?: "active" | "muted" | "banned";
+  reportCount?: number;
+  mutedUntil?: string | null;
+  bannedUntil?: string | null;
+  passwordHash?: string;
+  passwordSalt?: string;
 };
 
 export type AuthSession = {
@@ -215,6 +236,7 @@ export type AuthSession = {
   user: AuthUser | null;
   canPost: boolean;
   canMessage: boolean;
+  restrictionReason?: string | null;
 };
 
 export type LoginPayload = {
@@ -233,6 +255,7 @@ export type AuthResponse = {
   ok: boolean;
   message: string;
   session: AuthSession;
+  sessionToken?: string;
 };
 
 export type NotificationActionPayload = {
@@ -278,4 +301,154 @@ export type CreateCommentResponse = {
   ok: boolean;
   message: string;
   commentId: string;
+};
+
+export type ThreadRecord = {
+  id: string;
+  title: string;
+  category: string;
+  body: string;
+  tags: string[];
+  author: string;
+  createdAt: string;
+  hidden?: boolean;
+  deleted?: boolean;
+};
+
+export type CommentRecord = {
+  id: string;
+  threadId: string;
+  author: string;
+  body: string;
+  createdAt: string;
+  hidden?: boolean;
+  deleted?: boolean;
+};
+
+export type MessageRecord = {
+  id: string;
+  threadId: string;
+  author: string;
+  body: string;
+  createdAt: string;
+};
+
+export type ReportReason = "感到不适" | "内容不实";
+
+export type ReportRecord = {
+  id: string;
+  targetType: "thread" | "comment" | "user";
+  targetId: string;
+  targetLabel: string;
+  reason: ReportReason;
+  note: string;
+  reporter: string;
+  status: "pending" | "hidden" | "resolved" | "rejected";
+  createdAt: string;
+};
+
+export type ModerationActionRecord = {
+  id: string;
+  reportId: string;
+  action: "hide" | "restore" | "delete" | "mute7d" | "banPermanent";
+  targetType: "thread" | "comment" | "user";
+  targetId: string;
+  createdAt: string;
+  operator: string;
+  operatorId?: string;
+  sourceIp?: string;
+  userAgent?: string;
+};
+
+export type ForumDatabase = {
+  threads: ThreadRecord[];
+  comments: CommentRecord[];
+  messages: MessageRecord[];
+  notificationReads: string[];
+  reports: ReportRecord[];
+  moderationActions: ModerationActionRecord[];
+};
+
+export type AuthDatabase = {
+  users: AuthUser[];
+  sessions: {
+    token: string;
+    userId: string;
+    createdAt: string;
+    expiresAt: string;
+    lastSeenAt: string;
+  }[];
+};
+
+export type UpdateSettingsPayload = {
+  username: string;
+  bio: string;
+  followingVisibility: "公开" | "隐藏";
+  followersVisibility: "公开" | "隐藏";
+  dmPolicy: "互关前允许 1 条" | "仅好友可私信";
+  githubUrl: string;
+  bilibiliUrl: string;
+  publicEmail: string;
+};
+
+export type UpdateSettingsResponse = {
+  ok: boolean;
+  message: string;
+  user: AuthUser;
+};
+
+export type ModerationQueueItem = {
+  id: string;
+  targetLabel: string;
+  targetType: "thread" | "comment" | "user";
+  reason: ReportReason;
+  reporter: string;
+  status: "pending" | "hidden" | "resolved" | "rejected";
+  createdAtLabel: string;
+};
+
+export type AdminDashboardPayload = {
+  meta: ApiMeta;
+  stats: StatItem[];
+  reports: ApiListResponse<ModerationQueueItem>;
+  recentActions: ApiListResponse<SidebarItem>;
+};
+
+export type SubmitReportPayload = {
+  targetType: "thread" | "comment" | "user";
+  targetId: string;
+  targetLabel: string;
+  reason: ReportReason;
+  note: string;
+};
+
+export type SubmitReportResponse = {
+  ok: boolean;
+  message: string;
+  reportId: string;
+};
+
+export type ModerationActionPayload = {
+  reportId: string;
+  action: "hide" | "restore" | "delete" | "mute7d" | "banPermanent";
+};
+
+export type ModerationActionResponse = {
+  ok: boolean;
+  message: string;
+  reportId: string;
+};
+
+export type UserStatusAction = "mute7d" | "banPermanent" | "restore";
+
+export type AdminUserStatusPayload = {
+  userId: string;
+  action: UserStatusAction;
+};
+
+export type AdminUserStatusResponse = {
+  ok: boolean;
+  message: string;
+  userId: string;
+  status: "active" | "muted" | "banned";
 };

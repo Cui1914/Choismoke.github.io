@@ -1,0 +1,41 @@
+﻿name: community-app-ci
+
+on:
+  push:
+    paths:
+      - "community-app/**"
+      - ".github/workflows/community-app-ci.yml"
+  pull_request:
+    paths:
+      - "community-app/**"
+      - ".github/workflows/community-app-ci.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: community-app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: community-app/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build

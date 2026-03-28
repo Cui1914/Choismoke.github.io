@@ -1,14 +1,15 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { AppShell } from "@/components/app-shell";
 import { ActivityFeed } from "@/components/forum/activity-feed";
 import { ProfileSummaryCard } from "@/components/forum/profile-summary-card";
 import { SidebarListPanel } from "@/components/forum/sidebar-list-panel";
 import { StatsGrid } from "@/components/forum/stats-grid";
+import { getAuthSession } from "@/lib/forum/auth-service";
 import { getForumProfile } from "@/lib/forum/service";
 
 export default async function ProfilePage() {
-  const { highlights, recentActivity, recentThreads, relationStats, stats, summary } =
-    await getForumProfile();
+  const [{ highlights, recentActivity, recentThreads, relationStats, stats, summary }, session] =
+    await Promise.all([getForumProfile(), getAuthSession()]);
 
   return (
     <AppShell current="forum">
@@ -20,13 +21,20 @@ export default async function ProfilePage() {
           tags={summary.tags}
         />
 
+        {session.restrictionReason ? (
+          <div className="notice-inline">
+            <strong>账号状态已影响前台权限</strong>
+            <p>{session.restrictionReason}</p>
+          </div>
+        ) : null}
+
         <StatsGrid items={stats} />
 
         <div className="layout-grid">
           <section className="stack">
             <section className="panel">
               <div className="field-row" style={{ justifyContent: "space-between" }}>
-                <h2>最近发帖</h2>
+                <h2>最近发布</h2>
                 <Link className="button" href="/forum/thread">
                   查看帖子
                 </Link>

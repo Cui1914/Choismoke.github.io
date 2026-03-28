@@ -1,55 +1,34 @@
-import Link from "next/link";
-import { AppShell } from "@/components/app-shell";
+﻿import { AppShell } from "@/components/app-shell";
+import { ReportForm } from "@/components/forum/report-form";
+import { getAuthSession } from "@/lib/forum/auth-service";
 
-export default function ReportPage() {
+export default async function ReportPage() {
+  const session = await getAuthSession();
+  const currentUser = session.user?.username ?? "访客";
+
   return (
     <AppShell current="forum">
       <div className="auth-layout">
         <section className="panel form-card">
           <div className="eyebrow">Report</div>
-          <h1>Report content</h1>
+          <h1>举报内容</h1>
           <p className="section-copy">
-            Reported content is hidden first. Repeated reports can trigger automatic limits before
-            a moderator makes the final decision.
+            当前产品规则是先隐藏后审核。这一页现在会把举报真正提交到本地数据接口。
           </p>
-          <form className="form-grid">
-            <div className="field">
-              <label htmlFor="target">Target</label>
-              <input
-                id="target"
-                type="text"
-                defaultValue="Thread: What matters first when you build a personal project?"
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="reason">Reason</label>
-              <select id="reason" defaultValue="Causes discomfort">
-                <option>Causes discomfort</option>
-                <option>Content is inaccurate</option>
-              </select>
-            </div>
-            <div className="field">
-              <label htmlFor="note">Extra context</label>
-              <textarea
-                id="note"
-                placeholder="Give moderators the smallest amount of context needed to judge this report."
-              />
-            </div>
-            <div className="action-row">
-              <Link className="button primary" href="/forum/thread">
-                Submit preview
-              </Link>
-            </div>
-          </form>
+          <ReportForm
+            currentUser={currentUser}
+            defaultTargetId="thread-product-vs-polish"
+            defaultTargetLabel="帖子：做个人项目时，你会先保证功能闭环还是先打磨质感？"
+          />
         </section>
 
         <aside className="stack">
           <section className="panel">
-            <h3>Report behavior</h3>
+            <h3>处理规则</h3>
             <ul className="list">
-              <li>Content is hidden first.</li>
-              <li>Moderators review it afterward.</li>
-              <li>Repeated reports can restrict an account automatically.</li>
+              <li>举报进入本地数据后，目标内容先隐藏。</li>
+              <li>管理员再决定恢复、删除、禁言 7 天或永久封禁。</li>
+              <li>连续累计举报会逐步形成账号风险记录。</li>
             </ul>
           </section>
         </aside>

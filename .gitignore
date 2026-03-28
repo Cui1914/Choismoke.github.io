@@ -8,3 +8,5 @@ build/
 
 community-app/node_modules/
 community-app/.next/
+community-app/tsconfig.tsbuildinfo
+community-app/data/forum.sqlite

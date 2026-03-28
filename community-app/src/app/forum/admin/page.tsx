@@ -1,67 +1,67 @@
 import { AppShell } from "@/components/app-shell";
+import { AdminUserStatusTable } from "@/components/forum/admin-user-status-table";
+import { ModerationQueue } from "@/components/forum/moderation-queue";
 import { InfoCard } from "@/components/forum/info-card";
 import { StatsGrid } from "@/components/forum/stats-grid";
+import { getAdminDashboard, getAdminUsers } from "@/lib/forum/service";
 
-export default function AdminPage() {
+export default async function AdminPage() {
+  const [dashboard, users] = await Promise.all([getAdminDashboard(), getAdminUsers()]);
+
   return (
     <AppShell current="forum">
       <div className="stack">
         <section className="hero">
           <div className="eyebrow">Admin Preview</div>
           <h1>烟灰缸后台</h1>
-          <p className="lead">这里预留用户管理、举报处理、公告发布、分类管理和基础统计。</p>
+          <p className="lead">
+            这一版已经把举报处理和用户状态管理都接到了本地数据层，后面可以直接平滑升级到真实后台。
+          </p>
         </section>
 
-        <StatsGrid
-          items={[
-            { value: "1,248", label: "累计用户" },
-            { value: "386", label: "累计帖子" },
-            { value: "27", label: "待处理举报" },
-            { value: "5", label: "待审核封禁" },
-          ]}
-        />
+        <StatsGrid items={dashboard.stats} />
 
         <section className="helper-grid">
           <InfoCard
             eyebrow="Queue"
             title="处理队列"
-            description="举报、删帖、封禁、公告和分类维护会被拆成不同工作区，避免后台入口过深。"
+            description="举报提交后先隐藏目标，再由管理动作执行恢复、删除、禁言或封禁。"
           />
           <InfoCard
             eyebrow="Users"
-            title="用户维度"
-            description="后续会补封禁历史、被举报次数、最近发言和账号风险标记。"
+            title="用户状态"
+            description="支持直接调整用户状态，已覆盖正常、禁言和封禁三种状态。"
           />
           <InfoCard
-            eyebrow="Signals"
-            title="内容信号"
-            description="后台会看到最热帖、异常增长帖和高频举报帖，帮助管理员快速判断优先级。"
+            eyebrow="Actions"
+            title="管理记录"
+            description="每一次管理动作都会记录进本地数据，方便后续审计和回溯。"
           />
         </section>
 
         <section className="table-card">
           <div className="field-row" style={{ justifyContent: "space-between" }}>
             <h2>最新举报</h2>
-            <button className="button">发布公告</button>
+            <span className="section-copy">接口：/api/forum/report 与 /api/forum/moderation</span>
           </div>
-          <div className="table-row">
-            <strong>帖子：某条争议内容</strong>
-            <span>原因：感到不适</span>
-            <span>状态：已隐藏</span>
-            <span>操作：处理</span>
+          <ModerationQueue reports={dashboard.reports.items} />
+        </section>
+
+        <section className="table-card">
+          <div className="field-row" style={{ justifyContent: "space-between" }}>
+            <h2>用户状态管理</h2>
+            <span className="section-copy">接口：/api/forum/user-status</span>
           </div>
-          <div className="table-row">
-            <strong>用户：QuietLoop</strong>
-            <span>原因：内容不实</span>
-            <span>状态：待确认</span>
-            <span>操作：查看</span>
-          </div>
-          <div className="table-row">
-            <strong>评论：某条回复</strong>
-            <span>原因：感到不适</span>
-            <span>状态：已隐藏</span>
-            <span>操作：恢复</span>
-          </div>
+          <AdminUserStatusTable users={users} />
+        </section>
+
+        <section className="panel stack">
+          <h2>最近管理动作</h2>
+          <ul className="list">
+            {dashboard.recentActions.items.map((item) => (
+              <li key={item.label}>{item.label}</li>
+            ))}
+          </ul>
         </section>
       </div>
     </AppShell>
